@@ -1,27 +1,35 @@
 import { createStore } from 'redux';
 //const { createStore } = require("redux");
 
-const counterReducer = (state = { counter: 0 }, action) => {
+const initialState = { counter: 0, showToggle: true };
+const counterReducer = (state = initialState, action) => {
     if (action.type === 'INCREMENT') {
-        let count;
-        for (let x = 0; x < 10; x++) {
-            console.log(x)
-            count = { counter: state.counter + x }
+
+        return {
+            count: state.counter + 1,
+            showToggle: state.showToggle
 
         }
-        return count
     }
     if (action.type === 'Increase') {
         console.log(action.amount)
         return {
-            counter: state.counter + action.amount
+            counter: state.counter + action.amount,
+            showToggle: state.showToggle
         }
     }
 
 
     if (action.type === 'DECREMENT') {
         return {
-            counter: state.counter - 1
+            counter: state.counter - 1,
+            showToggle: state.showToggle
+        }
+    }
+    if (action.type === 'toggle') {
+        return {
+            showToggle: !state.showToggle,
+            counter: state.counter
         }
     }
 
