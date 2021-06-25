@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { createStore } from 'redux';
 //const { createStore } = require("redux");
 
@@ -22,9 +22,9 @@ const counterSlice = createSlice({
             state.showToggle = !state.showToggle;
         }
     }
-
-
 });
 
-const store = createStore(counterSlice.reducers);
+const store = configureStore({
+    reducer: counterSlice.reducer
+});
 export default store;
