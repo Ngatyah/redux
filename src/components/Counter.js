@@ -14,13 +14,13 @@ const Counter = () => {
 
 
   const incrementHandler = () => {
-    dispatch({ type: 'INCREMENT' });
+    dispatch(counterActions.increment());
   }
   const decrementHandler = () => {
     dispatch(counterActions.decrement());
   }
   const increaseHandler = () => {
-    dispatch(counterActions.customIncrease())
+    dispatch(counterActions.customIncrease(5))
   }
 
 
